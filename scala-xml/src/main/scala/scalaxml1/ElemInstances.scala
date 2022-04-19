@@ -15,7 +15,7 @@
  */
 
 package org.http4s
-package scalaxml
+package scalaxml1
 
 import cats.effect.Concurrent
 import org.http4s.Charset.`UTF-8`

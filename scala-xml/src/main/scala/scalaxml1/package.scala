@@ -18,6 +18,6 @@ package org.http4s
 
 import javax.xml.parsers.SAXParserFactory
 
-package object scalaxml extends ElemInstances {
+package object scalaxml1 extends ElemInstances {
   override val saxFactory = SAXParserFactory.newInstance
 }
