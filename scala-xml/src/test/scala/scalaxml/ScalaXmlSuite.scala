@@ -23,6 +23,8 @@ import fs2.Chunk
 import fs2.Stream
 import fs2.text.decodeWithCharset
 import fs2.text.utf8
+import munit.CatsEffectSuite
+import munit.ScalaCheckSuite
 import org.http4s.Status.Ok
 import org.http4s.headers.`Content-Type`
 import org.http4s.laws.discipline.arbitrary._
@@ -32,7 +34,7 @@ import org.typelevel.ci._
 import java.nio.charset.StandardCharsets
 import scala.xml.Elem
 
-class ScalaXmlSuite extends Http4sSuite {
+class ScalaXmlSuite extends CatsEffectSuite with ScalaCheckSuite {
   def getBody(body: EntityBody[IO]): IO[String] =
     body.through(utf8.decode).foldMonoid.compile.lastOrError
 
@@ -256,4 +258,15 @@ class ScalaXmlSuite extends Http4sSuite {
       "Günther",
     )
   }
+
+  // A dubious helper from core's Http4sSuite
+  def writeToString[A](a: A)(implicit W: EntityEncoder[IO, A]): IO[String] =
+    Stream
+      .emit(W.toEntity(a))
+      .flatMap(_.body)
+      .through(utf8.decode)
+      .foldMonoid
+      .compile
+      .last
+      .map(_.getOrElse(""))
 }
