@@ -16,7 +16,7 @@ ThisBuild / scalaVersion := Scala213 // the default Scala
 
 val http4sVersion = "0.23.11"
 val munitCatsEffectVersion = "1.0.7"
-val scalaXmlVersion = "1.3.0"
+val scalaXmlVersion = "2.1.0"
 
 lazy val root = tlCrossRootProject.aggregate(scalaXml1)
 
