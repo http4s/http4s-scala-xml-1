@@ -15,7 +15,7 @@
  */
 
 package org.http4s
-package scalaxml1
+package scalaxml
 
 import cats.effect._
 import cats.syntax.all._
