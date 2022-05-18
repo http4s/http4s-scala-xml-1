@@ -2,7 +2,7 @@
 
 ### Usage
 
-This library is currently available for Scala binary versions 2.13 and 3.1.
+This library is available for Scala binary versions 2.12 and 2.13.
 
 To use the latest version, include the following in your `build.sbt`:
 
