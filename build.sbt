@@ -15,7 +15,7 @@ val Scala213 = "2.13.8"
 ThisBuild / crossScalaVersions := Seq(Scala212, Scala213)
 ThisBuild / scalaVersion := Scala213 // the default Scala
 
-val http4sVersion = "0.23.11"
+val http4sVersion = "0.23.12"
 val munitCatsEffectVersion = "1.0.7"
 val scalaXmlVersion = "1.3.0"
 
